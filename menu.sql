@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2019 at 06:36 PM
+-- Generation Time: Oct 09, 2019 at 06:34 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -21,31 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `snackit`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `canteens`
---
-
-CREATE TABLE `canteens` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `contact_no` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `rating` tinyint(4) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `canteens`
---
-
-INSERT INTO `canteens` (`id`, `name`, `address`, `contact_no`, `image`, `rating`) VALUES
-(1, 'Ten_Bhagyanagar', 'Beside Mechanical Dept. SGGS Nanded', '', '', 0),
-(2, 'Delhi Juice Center', 'Opposite to SGGS Nanded', '9822242842', '', 0),
-(3, 'Coffee All Day', 'Behind Auditorium SGGS Nanded', '', '', 0),
-(4, 'Sai', 'Opposite to Textile lawn SGGS Nanded', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -140,12 +115,6 @@ INSERT INTO `menu` (`id`, `item`, `half`, `full`) VALUES
 --
 
 --
--- Indexes for table `canteens`
---
-ALTER TABLE `canteens`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
@@ -154,12 +123,6 @@ ALTER TABLE `menu`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `canteens`
---
-ALTER TABLE `canteens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `menu`

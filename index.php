@@ -1,3 +1,9 @@
+<?php
+
+include 'templates/db_connect.php';
+
+?>
+
 <!DOCTYPE html>
 <html>
 

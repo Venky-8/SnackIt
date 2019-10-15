@@ -6,6 +6,4 @@ if(!$conn) {
 	echo 'Connection error '. mysqli_connect_error();
 }
 
-echo 'Connected successfully';
-
 ?>

@@ -1,6 +1,5 @@
 <?php
     include('templates/db_connect.php');
-    mysqli_close($conn);
  ?>
 
 <!DOCTYPE html>
@@ -105,7 +104,7 @@
                     for($i = 0;$i < sizeof($canteens);$i++) {
                         echo $canteens[$i]['name'];
                     }
-                    
+
                     ?>
                 </p>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -123,28 +122,37 @@
         <div class="row">
             <?php
 
-            // $sql = "SELECT * FROM menu";
-            // $result = mysqli_query($conn,$sql);
-            // $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            // mysqli_free_result($result);
-            // mysqli_close($conn);
+            $sql = "SELECT * FROM canteens";
+            $result = mysqli_query($conn,$sql);
+            $canteens = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_free_result($result);
 
+            $sql = "SELECT * FROM menu";
+            $result = mysqli_query($conn,$sql);
+            $menu = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_free_result($result);
 
-            // for(i=0;i<3;i++) {
-
-            ?>   
+            foreach ($canteens as $canteen) {
+            ?>
             <div class="col-md-6 col-lg-3 mr-5">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="images/cleaning-services-500x500.jpg" alt="Full Home Cleaning">
+                    <img class="card-img-top" src="assets/img/<?php echo $canteen['image'];?>" alt="Full Home Cleaning">
                     <div class="card-body">
-                      <h5 class="card-title">Coffee All Day</h5>
-                      <p class="card-text">Simple Home Solutions connect you to a network of qualified and trained Home Cleaning providers.</p>
+                      <h5 class="card-title"> <?php echo $canteen['name']; ?> </h5>
+                      <p class="card-text">
+                          <ul>
+                              <?php foreach ($menu as $item) { ?>
+                              <?php if($item['canteens_id'] == $canteen['id']) { ?>
+                                  <li> <?php echo $item['item']; } ?> </li>
+                              <?php } ?>
+                          </ul>
+                      </p>
                       <a href="./Subpages/home_cleaning.php" class="btn btn-outline-success">Click to know more</a>
                     </div>
                 </div>
             </div>
             <?php
-            //} ?>
+            } ?>
         </div>
 
     </div>

@@ -90,9 +90,9 @@
     <div class="container">
         <div class="card-deck">
         <div class="card mb-4">
-            <img class="card-img-top img-fluid" src="//placehold.it/500x280" alt="Card image cap">
+            <img class="card-img-top img-fluid" src="assets/img/image.jpg" alt="Card image cap">
             <div class="card-body">
-                <h4 class="card-title">1 Card title</h4>
+                <h4 class="card-title">Hottest food...!</h4>
                 <p class="card-text">
                     <?php
 
@@ -101,15 +101,76 @@
                     $canteens = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     mysqli_free_result($result);
 
-                    for($i = 0;$i < sizeof($canteens);$i++) {
-                        echo $canteens[$i]['name'];
-                    }
+                   // for($i = 0;$i < sizeof($canteens);$i++) {
+                   //     echo $canteens[$i]['name'];
+                   // }
 
                     ?>
                 </p>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
+        </div>
+    </div>
+
+    <div class="container text-muted mt-3">
+
+        <h3 class="mt-5 mb-4"> Canteens </h3>
+
+        <!-- cards -->
+
+        <div class="row">
+            <?php
+            // $sql = "SELECT * FROM menu";
+            // $result = mysqli_query($conn,$sql);
+            // $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            // mysqli_free_result($result);
+            // mysqli_close($conn);
+            // for(i=0;i<3;i++)
+            ?>
+
+            <div class="col-md-6 col-lg-4 mr-6">
+                <div class="card" style="width: 22rem;">
+                    <img class="card-img-top" src="assets/img/cafe.jpg" alt="cafe">
+                    <div class="card-body">
+                      <h5 class="card-title">Coffee All Day</h5>
+                      <p class="card-text">Get a sip of your morning caffeine from an outlet who has mastered the Art Of Making Coffee.</p>
+                      <a href="canteen.html" class="btn btn-outline-success">Click to know more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mr-6">
+                <div class="card" style="width: 22rem;">
+                    <img class="card-img-top" src="assets/img/can.png" alt="ten bhagyanagar">
+                    <div class="card-body">
+                      <h5 class="card-title">Ten Bhagyanagar</h5>
+                      <p class="card-text">Specializes in Indian Breakfast and Lunch.Open till late at Night for your cravings with unmatched variety </p>
+                      <a href="canteen.html" class="btn btn-outline-success">Click to know more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mr-6">
+                <div class="card" style="width: 22rem;">
+                    <img class="card-img-top" src="assets/img/untitled.png" alt="sai">
+                    <div class="card-body">
+                      <h5 class="card-title">Sai</h5>
+                      <p class="card-text">Perfect for Parties and ample amount of foods and beverages inside your campus at your convinience</p>
+                      <a href="canteen.html" class="btn btn-outline-success">Click to know more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mr-6">
+                <div class="card" style="width: 22rem;">
+                    <img class="card-img-top" src="assets/img/images.jpg" alt="Delhi Juice Center">
+                    <div class="card-body">
+                      <h5 class="card-title">Delhi Juice Center</h5>
+                      <p class="card-text">Simply the Best Natural Juice Centre in your vicinity</p>
+                      <a href="canteen.html" class="btn btn-outline-success">Click to know more</a>
+                    </div>
+                </div>
+            </div>
+            <?php
+             ?>
         </div>
     </div>
 

@@ -1,3 +1,7 @@
+<?php
+    include('templates/db_connect.php');
+ ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -44,37 +48,50 @@
             </div>
         </div>
     </header>
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-image"><img class="img-fluid" src="assets/img/materialdesign_devices.png"><span class="card-title">Material Cards</span></div>
-                        <div class="card-content">
-                            <p>Cards for display in portfolio style material design by Google. </p>
-                        </div>
-                        <div class="card-action"><a href="#" target="_blank">Link</a><a href="#" target="_blank">Link</a><a href="#" target="_blank">Link</a><a href="#" target="_blank">Link</a><a href="#" target="_blank">Link</a></div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-image"><img class="img-fluid" src="assets/img/materialdesign_devices.png"><span class="card-title">Material Cards</span></div>
-                        <div class="card-content">
-                            <p>Cards for display in portfolio style material design by Google. </p>
-                        </div>
-                        <div class="card-action"><a href="#" target="_blank">Link</a><a href="#" target="_blank">Link</a><a href="#" target="_blank">Link</a><a href="#" target="_blank">Link</a><a href="#" target="_blank">Link</a></div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-image"><img class="img-fluid" src="assets/img/materialdesign_devices.png"><span class="card-title">Material Cards</span></div>
-                        <div class="card-content">
-                            <p>Cards for display in portfolio style material design by Google. </p>
-                        </div>
-                        <div class="card-action"><a href="#" target="_blank">Link</a><a href="#" target="_blank">Link</a><a href="#" target="_blank">Link</a><a href="#" target="_blank">Link</a><a href="#" target="_blank">Link</a></div>
+    <div class="container text-muted mt-3">
+
+        <h3 class="mt-5 mb-4"> Canteens </h3>
+
+        <!-- cards -->
+
+        <div class="row">
+            <?php
+
+            $sql = "SELECT * FROM canteens";
+            $result = mysqli_query($conn,$sql);
+            $canteens = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_free_result($result);
+
+            $sql = "SELECT * FROM menu";
+            $result = mysqli_query($conn,$sql);
+            $menu = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_free_result($result);
+
+            foreach ($canteens as $canteen) {
+            ?>
+            <div class="col-md-6 col-lg-4">
+                <div class="card" style="width: 22rem;">
+                    <img class="card-img-top" src="assets/img/<?php echo $canteen['image'];?>" alt="Full Home Cleaning">
+                    <div class="card-body">
+                      <h5 class="card-title"> <?php echo $canteen['name']; ?> </h5>
+                      <p class="card-text">
+                          <ul>
+                              <?php foreach ($menu as $item) {
+                                    $count = 0;
+                                    if($count > 5) {
+                                        break;
+                                    }?>
+                              <?php if($item['canteens_id'] == $canteen['id']) { ?>
+                                  <li> <?php echo $item['item']; $count++; } ?> </li>
+                              <?php } ?>
+                          </ul>
+                      </p>
+                      <a href="./Subpages/home_cleaning.php" class="btn btn-outline-success">Click to know more</a>
                     </div>
                 </div>
             </div>
+            <?php
+            } ?>
         </div>
     </div>
     <hr>

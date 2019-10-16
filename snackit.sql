@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 15, 2019 at 06:50 PM
+-- Generation Time: Oct 16, 2019 at 07:27 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -44,8 +44,7 @@ CREATE TABLE `canteens` (
 INSERT INTO `canteens` (`id`, `name`, `address`, `contact_no`, `image`, `rating`) VALUES
 (1, 'Ten_Bhagyanagar', 'Beside Mechanical Dept. SGGS Nanded', '', '', 0),
 (2, 'Delhi Juice Center', 'Opposite to SGGS Nanded', '9822242842', '', 0),
-(3, 'Coffee All Day', 'Behind Auditorium SGGS Nanded', '', 'pizza.jpg', 0),
-(4, 'Sai', 'Opposite to Textile lawn SGGS Nanded', '', '', 0);
+(3, 'Coffee All Day', 'Behind Auditorium SGGS Nanded', '', 'pizza.jpg', 0);
 
 -- --------------------------------------------------------
 

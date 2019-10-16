@@ -31,8 +31,8 @@
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="canteen.php">Canteens</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="contact.html">Contact us</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="about.html">ABOUT US</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="contact.php">Contact us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="about.php">ABOUT US</a></li>
                 </ul>
         </div>
         </div>
@@ -121,56 +121,33 @@
 
         <div class="row">
             <?php
-            // $sql = "SELECT * FROM menu";
-            // $result = mysqli_query($conn,$sql);
-            // $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            // mysqli_free_result($result);
-            // mysqli_close($conn);
-            // for(i=0;i<3;i++)
-            ?>
 
-            <div class="col-md-6 col-lg-4 mr-6">
+            $sql = "SELECT * FROM canteens";
+            $result = mysqli_query($conn,$sql);
+            $canteens = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_free_result($result);
+
+            $sql = "SELECT * FROM menu";
+            $result = mysqli_query($conn,$sql);
+            $menu = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_free_result($result);
+
+            foreach ($canteens as $canteen) {
+            ?>
+            <div class="col-md-6 col-lg-4">
                 <div class="card" style="width: 22rem;">
-                    <img class="card-img-top" src="assets/img/cafe.jpg" alt="cafe">
+                    <img class="card-img-top" src="assets/img/<?php echo $canteen['image'];?>" alt="Full Home Cleaning">
                     <div class="card-body">
-                      <h5 class="card-title">Coffee All Day</h5>
-                      <p class="card-text">Get a sip of your morning caffeine from an outlet who has mastered the Art Of Making Coffee.</p>
-                      <a href="canteen.html" class="btn btn-outline-success">Click to know more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mr-6">
-                <div class="card" style="width: 22rem;">
-                    <img class="card-img-top" src="assets/img/can.png" alt="ten bhagyanagar">
-                    <div class="card-body">
-                      <h5 class="card-title">Ten Bhagyanagar</h5>
-                      <p class="card-text">Specializes in Indian Breakfast and Lunch.Open till late at Night for your cravings with unmatched variety </p>
-                      <a href="canteen.html" class="btn btn-outline-success">Click to know more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mr-6">
-                <div class="card" style="width: 22rem;">
-                    <img class="card-img-top" src="assets/img/untitled.png" alt="sai">
-                    <div class="card-body">
-                      <h5 class="card-title">Sai</h5>
-                      <p class="card-text">Perfect for Parties and ample amount of foods and beverages inside your campus at your convinience</p>
-                      <a href="canteen.html" class="btn btn-outline-success">Click to know more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mr-6">
-                <div class="card" style="width: 22rem;">
-                    <img class="card-img-top" src="assets/img/images.jpg" alt="Delhi Juice Center">
-                    <div class="card-body">
-                      <h5 class="card-title">Delhi Juice Center</h5>
-                      <p class="card-text">Simply the Best Natural Juice Centre in your vicinity</p>
-                      <a href="canteen.html" class="btn btn-outline-success">Click to know more</a>
+                      <h5 class="card-title"> <?php echo $canteen['name']; ?> </h5>
+                      <p class="card-text">
+                          <?php echo $canteen['description'] ?>
+                      </p>
+                      <a href="canteen.php" class="btn btn-outline-success">Click to know more</a>
                     </div>
                 </div>
             </div>
             <?php
-             ?>
+            } ?>
         </div>
     </div>
 

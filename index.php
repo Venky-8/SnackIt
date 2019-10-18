@@ -135,14 +135,14 @@
             foreach ($canteens as $canteen) {
             ?>
             <div class="col-md-6 col-lg-4">
-                <div class="card" style="width: 22rem;">
+                <div class="card h-100" style="width: 22rem;">
                     <img class="card-img-top" src="assets/img/<?php echo $canteen['image'];?>" alt="Full Home Cleaning">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                       <h5 class="card-title"> <?php echo $canteen['name']; ?> </h5>
                       <p class="card-text">
                           <?php echo $canteen['description'] ?>
                       </p>
-                      <a href="canteen.php" class="btn btn-outline-success">Click to know more</a>
+                      <a href="canteen.php" class="btn btn-outline-success mt-auto">Click to know more</a>
                     </div>
                 </div>
             </div>

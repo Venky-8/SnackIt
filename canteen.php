@@ -62,6 +62,16 @@
             $canteens = mysqli_fetch_all($result, MYSQLI_ASSOC);
             mysqli_free_result($result);
 
+            $sql = "SELECT * FROM food_class";
+            $result = mysqli_query($conn,$sql);
+            $food_class = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_free_result($result);
+
+            $sql = "SELECT * FROM canteen_food_class";
+            $result = mysqli_query($conn,$sql);
+            $canteen_food_class = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_free_result($result);
+
             $sql = "SELECT * FROM menu";
             $result = mysqli_query($conn,$sql);
             $menu = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -69,22 +79,46 @@
 
             foreach ($canteens as $canteen) {
             ?>
+
             <div class="col-md-6 col-lg-4">
                 <div class="card" style="width: 22rem;">
                     <img class="card-img-top" src="assets/img/<?php echo $canteen['image'];?>" alt="Full Home Cleaning">
                     <div class="card-body">
                       <h5 class="card-title"> <?php echo $canteen['name']; ?> </h5>
                       <p class="card-text">
-                          <ul>
-                              <?php foreach ($menu as $item) {
-                                    $count = 0;
-                                    if($count > 5) {
-                                        break;
-                                    }?>
-                              <?php if($item['canteens_id'] == $canteen['id']) { ?>
-                                  <li> <?php echo $item['item']; $count++; } ?> </li>
-                              <?php } ?>
-                          </ul>
+                          <div class="list-group">
+
+                              <?php foreach($canteen_food_class as $canteen_class) {
+                                  if($canteen_class['canteen_id'] == $canteen['id']) { ?>
+                                      <?php
+                                      $current_canteen_name = str_replace(' ', '_', $canteen['name']);
+                                      $current_food_class = str_replace(' ', '_', $food_class[array_search($canteen_class['food_class_id'], array_column($food_class, 'id'))]['class']);
+                                      $unique_id = $current_canteen_name . '_' . $current_food_class;
+                                      ?>
+                                      <button type="button" role="tablist" href="#<?php echo $unique_id; ?>" class="list-group-item list-group-item-info" data-toggle="collapse"> <?php echo $current_food_class; ?> <i class="icon-action fa fa-chevron-down float-right"> </i> </button>
+                                      <div id="<?php echo $unique_id; ?>" class="collpase">
+
+                                          <?php foreach ($menu as $item) {
+                                              if($item['canteens_id'] == $canteen['id'] && $item['food_class_id'] == $canteen_class['food_class_id']) { ?>
+                                                  <ul class="list-group list-group-horizontal">
+                                                      <?php if($item['half']): ?>
+                                                          <li role="tab" class="list-group-item col-6"> <?php echo $item['item']; ?> </li>
+                                                          <li role="tab" class="list-group-item col-3"> <?php echo $item['half'] ?> </li>
+                                                          <li role="tab" class="list-group-item col-3"> <?php echo $item['full']; ?> </li>
+                                                      <?php else: ?>
+                                                          <li role="tab" class="list-group-item col-8"> <?php echo $item['item']; ?> </li>
+                                                          <li role="tab" class="list-group-item col-4"> <?php echo $item['full']; ?> </li>
+                                                      <?php endif ?>
+                                                  </ul>
+                                              <?php }
+                                          } ?>
+
+                                      </div>
+                                  <?php
+                                  }
+                              } ?>
+
+                          </div>
                       </p>
                       <a href="./Subpages/home_cleaning.php" class="btn btn-outline-success">Click to know more</a>
                     </div>
@@ -113,6 +147,7 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-animation.js"></script>
     <script src="assets/js/clean-blog.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

@@ -103,7 +103,7 @@
                                                   <ul class="list-group list-group-horizontal">
                                                       <?php if($item['half']): ?>
                                                           <li role="tab" class="list-group-item col-6"> <?php echo $item['item']; ?> </li>
-                                                          <li role="tab" class="list-group-item col-3"> <?php echo $item['half'] ?> </li>
+                                                          <li role="tab" class="list-group-item col-3"> <?php echo $item['half']; ?> </li>
                                                           <li role="tab" class="list-group-item col-3"> <?php echo $item['full']; ?> </li>
                                                       <?php else: ?>
                                                           <li role="tab" class="list-group-item col-8"> <?php echo $item['item']; ?> </li>

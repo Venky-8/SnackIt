@@ -61,57 +61,45 @@
             <div class="intro">
                 <h2 class="text-center" data-bs-hover-animate="jello"><i class="icon ion-spoon mr-2"></i>Menu<i class="icon ion-fork ml-2"></i></h2>
                 <p class="text-center">Choose from a wide variety of dishes</p>
-            </div><span class="badge badge-primary badge-secondary"><i class="fa fa-star mr-1"></i>Trending</span>
+            </div><span class="badge badge-primary badge-secondary"><i class="fa fa-star mr-1"></i>&nbsp;Featured</span>
             <div class="row people">
                 <div class="col-md-6 col-lg-4 item">
                     <div data-bs-hover-animate="pulse" class="box"><img class="rounded-circle" src="assets/img/idli-vada.jpg">
                         <h3 class="name">Idli-vada</h3>
-                        <p class="title">&nbsp;Outside campus</p>
+                        <p class="title">&nbsp;Ten Bhagyanagar</p>
                         <div class="social"><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star fa-star-o"></i></a></div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 item">
                     <div data-bs-hover-animate="pulse" class="box"><img class="rounded-circle" src="assets/img/coffee.jpg">
                         <h3 class="name">Coffee</h3>
-                        <p class="title">beside hostel</p>
+                        <p class="title">Coffee All Day</p>
                         <div class="social"><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star fa-star-half-o"></i></a><a href="#"><i class="fa fa-star fa-star-o"></i></a></div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 item">
                     <div data-bs-hover-animate="pulse" class="box"><img class="rounded-circle" src="assets/img/burger.jpg">
                         <h3 class="name">Burger</h3>
-                        <p class="title">kolhapuri thaska</p>
+                        <p class="title">Coffee All Day</p>
                         <div class="social"><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
+    <!-- <div class="container">
         <div class="card-deck">
         <div class="card mb-4">
             <img class="card-img-top img-fluid" src="assets/img/image.jpg" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title">Hottest food...!</h4>
                 <p class="card-text">
-                    <?php
-
-                    $sql = "SELECT * FROM canteens";
-                    $result = mysqli_query($conn,$sql);
-                    $canteens = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                    mysqli_free_result($result);
-
-                   // for($i = 0;$i < sizeof($canteens);$i++) {
-                   //     echo $canteens[$i]['name'];
-                   // }
-
-                    ?>
                 </p>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="container text-muted mt-3">
 
@@ -160,7 +148,7 @@
                     <ul class="list-inline text-center">
                         <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></li>
                         <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></li>
-                        <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></li>
+                        <li class="list-inline-item"><a href="https://github.com/Venky-8/SnackIt"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a></li>
                     </ul>
                     <p class="text-muted copyright">Copyright&nbsp;©&nbsp;Brand 2019</p>
                 </div>

@@ -9,6 +9,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>About us - Brand</title>
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
@@ -43,7 +47,7 @@
             <div class="row">
                 <div class="col-md-10 col-lg-8 mx-auto">
                     <div class="site-heading">
-                        <h1 style="font-size: 30px;"><br><strong>Search from canteens around you</strong>&nbsp;</h1><span class="subheading">This is CL-4 and DBMS Project</span></div>
+                        <h1 style="font-size: 30px;"><br><strong>Search from canteens around you</strong>&nbsp;</h1><span class="subheading">Snack great deals from canteens</span></div>
                 </div>
             </div>
         </div>
@@ -95,7 +99,7 @@
                                       $current_food_class = str_replace(' ', '_', $food_class[array_search($canteen_class['food_class_id'], array_column($food_class, 'id'))]['class']);
                                       $unique_id = $current_canteen_name . '_' . $current_food_class;
                                       ?>
-                                      <button type="button" role="tablist" href="#<?php echo $unique_id; ?>" class="list-group-item list-group-item-info" data-toggle="collapse"> <?php echo $current_food_class; ?> <i class="icon-action fa fa-chevron-down float-right"> </i> </button>
+                                      <button type="button" role="tab" href="#<?php echo $unique_id; ?>" class="list-group-item list-group-item-info" data-toggle="collapse"> <?php echo $current_food_class; ?> <i class="icon-action fa fa-chevron-down float-right"> </i> </button>
                                       <div id="<?php echo $unique_id; ?>" class="collpase">
 
                                           <?php foreach ($menu as $item) {
@@ -117,10 +121,11 @@
                                   <?php
                                   }
                               } ?>
-
                           </div>
                       </p>
-                      <a href="./Subpages/home_cleaning.php" class="btn btn-outline-success">Click to know more</a>
+                      <button type="button" class="btn btn-outline-success" data-container="body" data-toggle="popover" data-placement="bottom" data-content="<?php echo $canteen['address'] . '    ' . $canteen['contact_no']; ?>">
+                        Click to know more
+                      </button>
                     </div>
                 </div>
             </div>

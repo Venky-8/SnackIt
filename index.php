@@ -53,9 +53,45 @@ mysqli_free_result($result);
                     <li class="nav-item" role="presentation"><a class="nav-link" href="canteen.php">Canteens</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="contact.php">Contact us</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="about.php">ABOUT US</a></li>
+                    <li class="nav-item" role="presentation"><a href="" class="nav-link" type="button" data-toggle="modal" data-target="#signInModal">LOGIN</a></li>
                 </ul>
+            </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title ml-auto">Sign In</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="login-form mx-5">
+                            <form action="index.php" method="post">
+                                <div class="form-group">
+                                    <input name="username" type="text" class="form-control" placeholder="Username" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input name="password" type="password" class="form-control" placeholder="Password" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <button name="login" type="submit" class="btn btn-info btn-block">Log in</button>
+                                </div>
+                                <div class="clearfix">
+                                    <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+                                    <!-- <a href="#" class="pull-rightm float-right">Forgot Password?</a> -->
+                                </div>
+                            </form>
+                            <p class="text-center my-2"><a href="./signup.php">Create an Account</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </nav>
     <header data-bs-parallax-bg="true" class="masthead" style="background-image: url('assets/img/dosa.jpg');margin: 0px;">
         <div class="overlay"></div>

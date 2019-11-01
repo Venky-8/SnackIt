@@ -58,7 +58,7 @@
 
         <!-- cards -->
 
-        <div class="row">
+        <div class="row" id="canteens">
             <?php
 
             $sql = "SELECT * FROM canteens";

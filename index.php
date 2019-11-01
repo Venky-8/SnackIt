@@ -2,6 +2,12 @@
     include('templates/db_connect.php');
  ?>
 
+<?php
+    if(isset($_POST['search'])) {
+        header("Location: canteen.php?some_param=1#canteens");
+    }
+ ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -22,6 +28,20 @@
     <link rel="stylesheet" href="assets/css/Search-Input-responsive.css">
     <link rel="stylesheet" href="assets/css/Team-Boxed.css">
 </head>
+
+<?php
+
+$sql = "SELECT * FROM canteens";
+$result = mysqli_query($conn,$sql);
+$canteens = mysqli_fetch_all($result, MYSQLI_ASSOC);
+mysqli_free_result($result);
+
+$sql = "SELECT * FROM menu";
+$result = mysqli_query($conn,$sql);
+$menu = mysqli_fetch_all($result, MYSQLI_ASSOC);
+mysqli_free_result($result);
+
+?>
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
@@ -44,16 +64,23 @@
                 <div class="col-md-10 col-lg-8 mx-auto">
                     <div class="site-heading">
                         <h1 style="font-size: 34px;">Snack great deals from canteens&nbsp;</h1><span class="subheading"><strong>Search from canteens around you</strong><br></span>
-                        <form class="search-form">
+                        <form action="index.php" class="search-form" method="post">
                             <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text" style="opacity: 0.50;"><i class="fa fa-search bounce animated"></i></span></div><input class="form-control" type="text" placeholder="I am looking for.." style="height: 52.8px;opacity: 0.50;">
-                                <div
-                                    class="input-group-append"><button class="btn btn-light" type="button" style="background-color: rgb(233,236,239);color: rgba(33,37,41,0.71);font-size: 13px;opacity: 0.50;">Search</button></div>
+                                <div class="input-group-prepend"><span class="input-group-text" style="opacity: 0.50;"><i class="fa fa-search bounce animated"></i></span></div><input list="searchlist" class="form-control" type="text" placeholder="I am looking for.." style="height: 52.8px;opacity: 0.50;">
+                                <datalist id="searchlist">
+                                    <<?php foreach ($canteens as $canteen): ?>
+                                        <option value="<?php echo $canteen['name']; ?>">
+                                    <?php endforeach; ?>
+                                    <?php foreach ($menu as $item): ?>
+                                        <option value="<?php echo $item['item'] ?>">
+                                    <?php endforeach; ?>
+                                </datalist>
+                                <div class="input-group-append"><button class="btn btn-light" type="submit" name="search" style="background-color: rgb(233,236,239);color: rgba(33,37,41,0.71);font-size: 13px;opacity: 0.50;">Search</button></div>
+                            </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
-        </div>
         </div>
     </header>
     <div class="team-boxed" style="padding-top: 5px;">
@@ -66,6 +93,7 @@
                 <div class="col-md-6 col-lg-4 item">
                     <div data-bs-hover-animate="pulse" class="box"><img class="rounded-circle" src="assets/img/idli-vada.jpg">
                         <h3 class="name">Idli-vada</h3>
+                        <a href="canteen.php?some_param=1#canteens" class="btn btn-outline-secondary mt-auto">Snack It</a>
                         <p class="title">&nbsp;Ten Bhagyanagar</p>
                         <div class="social"><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star fa-star-o"></i></a></div>
                     </div>
@@ -73,6 +101,7 @@
                 <div class="col-md-6 col-lg-4 item">
                     <div data-bs-hover-animate="pulse" class="box"><img class="rounded-circle" src="assets/img/coffee.jpg">
                         <h3 class="name">Coffee</h3>
+                        <a href="canteen.php?some_param=1#canteens" class="btn btn-outline-secondary mt-auto">Snack It</a>
                         <p class="title">Coffee All Day</p>
                         <div class="social"><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star fa-star-half-o"></i></a><a href="#"><i class="fa fa-star fa-star-o"></i></a></div>
                     </div>
@@ -80,6 +109,7 @@
                 <div class="col-md-6 col-lg-4 item">
                     <div data-bs-hover-animate="pulse" class="box"><img class="rounded-circle" src="assets/img/burger.jpg">
                         <h3 class="name">Burger</h3>
+                        <a href="canteen.php?some_param=1#canteens" class="btn btn-outline-secondary mt-auto">Snack It</a>
                         <p class="title">Coffee All Day</p>
                         <div class="social"><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a></div>
                     </div>
@@ -109,17 +139,6 @@
 
         <div class="row">
             <?php
-
-            $sql = "SELECT * FROM canteens";
-            $result = mysqli_query($conn,$sql);
-            $canteens = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            mysqli_free_result($result);
-
-            $sql = "SELECT * FROM menu";
-            $result = mysqli_query($conn,$sql);
-            $menu = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            mysqli_free_result($result);
-
             foreach ($canteens as $canteen) {
             ?>
             <div class="col-md-6 col-lg-4">
@@ -130,7 +149,7 @@
                       <p class="card-text">
                           <?php echo $canteen['description'] ?>
                       </p>
-                      <a href="canteen.php" class="btn btn-outline-success mt-auto">Click to know more</a>
+                      <a href="canteen.php?some_param=1#canteens" class="btn btn-outline-success mt-auto">Click to know more</a>
                     </div>
                 </div>
             </div>
@@ -148,7 +167,7 @@
                     <ul class="list-inline text-center">
                         <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></li>
                         <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></li>
-                        <li class="list-inline-item"><a href="https://github.com/Venky-8/SnackIt"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a></li>
+                        <li class="list-inline-item"><a target="_blank" href="https://github.com/Venky-8/SnackIt"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a></li>
                     </ul>
                     <p class="text-muted copyright">Copyright&nbsp;©&nbsp;Brand 2019</p>
                 </div>

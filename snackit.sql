@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 18, 2019 at 11:29 AM
+-- Generation Time: Nov 08, 2019 at 06:22 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -34,7 +34,6 @@ CREATE TABLE `canteens` (
   `address` varchar(255) NOT NULL,
   `contact_no` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `rating` tinyint(4) DEFAULT 0,
   `description` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -42,10 +41,10 @@ CREATE TABLE `canteens` (
 -- Dumping data for table `canteens`
 --
 
-INSERT INTO `canteens` (`id`, `name`, `address`, `contact_no`, `image`, `rating`, `description`) VALUES
-(1, 'Ten_Bhagyanagar', 'Beside Mechanical Dept. SGGS Nanded', '', 'can.png', 0, 'Specializes in Indian Breakfast and Lunch.Open till late at Night for your cravings with unmatched variety.'),
-(2, 'Delhi Juice Center', 'Opposite to SGGS Nanded', '9822242842', 'images.jpg', 0, 'Simply the Best Natural Juice Centre in your vicinity.'),
-(3, 'Coffee All Day', 'Behind Auditorium SGGS Nanded', '', 'pizza.jpg', 0, 'Get a sip of your morning caffeine from an outlet who has mastered the Art Of Making Coffee.');
+INSERT INTO `canteens` (`id`, `name`, `address`, `contact_no`, `image`, `description`) VALUES
+(1, 'Ten Bhagyanagar', 'Beside Mechanical Dept. SGGS Nanded', '', 'can.png', 'Specializes in Indian Breakfast and Lunch.Open till late at Night for your cravings with unmatched variety.'),
+(2, 'Delhi Juice Center', 'Opposite to SGGS Nanded', '9822242842', 'images.jpg', 'Simply the Best Natural Juice Centre in your vicinity.'),
+(3, 'Coffee All Day', 'Behind Auditorium SGGS Nanded', '', 'pizza.jpg', 'Get a sip of your morning caffeine from an outlet who has mastered the Art Of Making Coffee.');
 
 -- --------------------------------------------------------
 
@@ -77,6 +76,29 @@ INSERT INTO `canteen_food_class` (`canteen_id`, `food_class_id`) VALUES
 (3, 10),
 (3, 12),
 (3, 13);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `message` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `name`, `email`, `phone`, `message`) VALUES
+(1, 'Venkatesh Mangnale', 'mangnalev.1999@gmail.com', '8788567726', 'Very cool website'),
+(2, 'Ashish Bodele', 'ashishbodele27@gmail.com', '1234567890', 'Starrrrrrr'),
+(3, 'pavan', 'pavan@gmail.com', '9869454335', 'hi');
 
 -- --------------------------------------------------------
 
@@ -195,7 +217,9 @@ INSERT INTO `menu` (`id`, `item`, `half`, `full`, `canteens_id`, `food_class_id`
 (67, 'Capsicum Pizza', NULL, 90, 3, 12),
 (68, 'Paneer Pizza', NULL, 100, 3, 12),
 (69, 'Mexican Pizza', NULL, 110, 3, 12),
-(70, 'Bread Pizza', NULL, 120, 3, 12);
+(70, 'Bread Pizza', NULL, 120, 3, 12),
+(71, 'Idli-Vada', NULL, 20, 1, 1),
+(72, 'Dosa', NULL, 25, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -213,6 +237,12 @@ ALTER TABLE `canteens`
 ALTER TABLE `canteen_food_class`
   ADD KEY `canteen_id` (`canteen_id`,`food_class_id`),
   ADD KEY `food_class_id` (`food_class_id`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `food_class`
@@ -239,6 +269,12 @@ ALTER TABLE `canteens`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `food_class`
 --
 ALTER TABLE `food_class`
@@ -248,7 +284,7 @@ ALTER TABLE `food_class`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- Constraints for dumped tables

@@ -109,7 +109,7 @@ mysqli_free_result($result);
                 <div class="col-md-6 col-lg-4 item">
                     <div data-bs-hover-animate="pulse" class="box"><img class="rounded-circle" src="assets/img/coffee.jpg">
                         <h3 class="name">Coffee</h3>
-                        <a href="canteen.php?some_param=1#canteens" class="btn btn-outline-secondary mt-auto">Snack It</a>
+                        <a href="canteen.php?some_param=1#" class="btn btn-outline-secondary mt-auto">Snack It</a>
                         <p class="title">Coffee All Day</p>
                         <div class="social"><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star fa-star-half-o"></i></a><a href="#"><i class="fa fa-star fa-star-o"></i></a></div>
                     </div>
@@ -117,7 +117,7 @@ mysqli_free_result($result);
                 <div class="col-md-6 col-lg-4 item">
                     <div data-bs-hover-animate="pulse" class="box"><img class="rounded-circle" src="assets/img/burger.jpg">
                         <h3 class="name">Burger</h3>
-                        <a href="canteen.php?some_param=1#canteens" class="btn btn-outline-secondary mt-auto">Snack It</a>
+                        <a href="canteen.php?some_param=1#Coffee_All_Day_Burger" class="btn btn-outline-secondary mt-auto">Snack It</a>
                         <p class="title">Coffee All Day</p>
                         <div class="social"><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a></div>
                     </div>
@@ -173,8 +173,8 @@ mysqli_free_result($result);
                  ?>
                 <div class="col-md-10 col-lg-8 mx-auto">
                     <ul class="list-inline text-center">
-                        <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></li>
-                        <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></li>
+                        <li class="list-inline-item"><a target="_blank" href="https://twitter.com"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a></li>
+                        <li class="list-inline-item"><a target="_blank" href="https://facebook.com"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a></li>
                         <li class="list-inline-item"><a target="_blank" href="https://github.com/Venky-8/SnackIt"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></a></li>
                     </ul>
                     <p class="text-muted copyright">Copyright&nbsp;©&nbsp;Brand 2019</p>

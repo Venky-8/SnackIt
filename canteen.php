@@ -104,15 +104,19 @@
 
                                           <?php foreach ($menu as $item) {
                                               if($item['canteens_id'] == $canteen['id'] && $item['food_class_id'] == $canteen_class['food_class_id']) { ?>
+                                                  <?php
+                                                  $item_code = $current_canteen_name . '_' . $item['item'];
+                                                   ?>
                                                   <ul class="list-group list-group-horizontal">
                                                       <?php if($item['half']): ?>
-                                                          <li role="tab" class="list-group-item col-6"> <?php echo $item['item']; ?> </li>
+                                                          <li role="tab" class="list-group-item col-4"> <?php echo $item['item']; ?> </li>
                                                           <li role="tab" class="list-group-item col-3"> <?php echo $item['half']; ?> </li>
                                                           <li role="tab" class="list-group-item col-3"> <?php echo $item['full']; ?> </li>
+                                                          <li role="tab" class="list-group-item col-2"> <a href="cart/index.php?action=add&code=<?php echo $item_code; ?>"> <i class="fa fa-cart-plus" aria-hidden="true"></i> </a> </button </li>
                                                       <?php else: ?>
                                                           <li role="tab" class="list-group-item col-6"> <?php echo $item['item']; ?> </li>
                                                           <li role="tab" class="list-group-item col-4"> <?php echo $item['full']; ?> </li>
-                                                          <li role="tab" class="list-group-item col-2"> <a href="cart/index.php"> <i class="fa fa-cart-plus" aria-hidden="true"></i> </a> </button </li>
+                                                          <li role="tab" class="list-group-item col-2"> <a href="cart/index.php?action=add&code=<?php echo $item_code; ?>"> <i class="fa fa-cart-plus" aria-hidden="true"></i> </a> </button </li>
                                                       <?php endif ?>
                                                   </ul>
                                               <?php }

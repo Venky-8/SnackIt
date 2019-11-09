@@ -8,7 +8,7 @@ switch($_GET["action"]) {
 		if(!empty($_POST["quantity"])) {
 			$productByCode = $db_handle->runQuery("SELECT * FROM tblproduct WHERE code='" . $_GET["code"] . "'");
 			$itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["name"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_POST["quantity"], 'price'=>$productByCode[0]["price"], 'image'=>$productByCode[0]["image"]));
-			
+
 			if(!empty($_SESSION["cart_item"])) {
 				if(in_array($productByCode[0]["code"],array_keys($_SESSION["cart_item"]))) {
 					foreach($_SESSION["cart_item"] as $k => $v) {
@@ -31,7 +31,7 @@ switch($_GET["action"]) {
 		if(!empty($_SESSION["cart_item"])) {
 			foreach($_SESSION["cart_item"] as $k => $v) {
 					if($_GET["code"] == $k)
-						unset($_SESSION["cart_item"][$k]);				
+						unset($_SESSION["cart_item"][$k]);
 					if(empty($_SESSION["cart_item"]))
 						unset($_SESSION["cart_item"]);
 			}
@@ -39,7 +39,7 @@ switch($_GET["action"]) {
 	break;
 	case "empty":
 		unset($_SESSION["cart_item"]);
-	break;	
+	break;
 }
 }
 ?>
@@ -47,8 +47,14 @@ switch($_GET["action"]) {
 <HEAD>
 <TITLE>Simple PHP Shopping Cart</TITLE>
 <link href="style.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
 </HEAD>
 <BODY>
+<div class="container-fluid">
+		<a href="../index.php" class="btn btn-outline-success float-right mt-2 ml-2"> Go Home</a>
+	<a href="../canteen.php" class="btn btn-outline-success float-right mt-2 ml-2"> Shop more </a>
+</div>
+<br>
 <div id="shopping-cart">
 <div class="txt-heading">Shopping Cart</div>
 
@@ -57,7 +63,7 @@ switch($_GET["action"]) {
 if(isset($_SESSION["cart_item"])){
     $total_quantity = 0;
     $total_price = 0;
-?>	
+?>
 <table class="tbl-cart" cellpadding="10" cellspacing="1">
 <tbody>
 <tr>
@@ -67,8 +73,8 @@ if(isset($_SESSION["cart_item"])){
 <th style="text-align:right;" width="10%">Unit Price</th>
 <th style="text-align:right;" width="10%">Price</th>
 <th style="text-align:center;" width="5%">Remove</th>
-</tr>	
-<?php		
+</tr>
+<?php
     foreach ($_SESSION["cart_item"] as $item){
         $item_price = $item["quantity"]*$item["price"];
 		?>
@@ -93,12 +99,12 @@ if(isset($_SESSION["cart_item"])){
 <td></td>
 </tr>
 </tbody>
-</table>		
+</table>
   <?php
 } else {
 ?>
 <div class="no-records">Your Cart is Empty</div>
-<?php 
+<?php
 }
 ?>
 </div>
@@ -107,7 +113,7 @@ if(isset($_SESSION["cart_item"])){
 	<div class="txt-heading">Products</div>
 	<?php
 	$product_array = $db_handle->runQuery("SELECT * FROM tblproduct ORDER BY id ASC");
-	if (!empty($product_array)) { 
+	if (!empty($product_array)) {
 		foreach($product_array as $key=>$value){
 	?>
 		<div class="product-item">

@@ -1,9 +1,3 @@
-<script src="../assets/js/jquery.min.js"></script>
-<script>
-// $(window).load(function(){
-// 	$('html,body').animate({scrollTop: $('#<?php //echo $_GET['target']; ?>').offset().top - 100 }, 'slow');
-// });
-</script>
 <?php
 session_start();
 require_once("dbcontroller.php");

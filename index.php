@@ -5,7 +5,13 @@
 <?php
     session_start();
     if(isset($_POST['search'])) {
-        header("Location: canteen.php?some_param=1#canteens");
+        $search_item = $_POST['searchItem'];
+        $sql = "SELECT * FROM menu WHERE menu.item='$search_item'";
+        $result = mysqli_query($conn,$sql);
+        $search_result = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        mysqli_free_result($result);
+        $codes = $search_result[0]['code'];
+        header("Location: canteen.php?some_param=1#$codes");
     }
  ?>
 
@@ -15,7 +21,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Brand</title>
+    <title>Home - SnackIt</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
@@ -74,7 +80,7 @@ mysqli_free_result($result);
                         <h1 style="font-size: 34px;">Snack great deals from canteens&nbsp;</h1><span class="subheading"><strong>Search from canteens around you</strong><br></span>
                         <form action="index.php" class="search-form" method="post">
                             <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text" style="opacity: 0.50;"><i class="fa fa-search bounce animated"></i></span></div><input list="searchlist" class="form-control" type="text" placeholder="I am looking for.." style="height: 52.8px;opacity: 0.50;">
+                                <div class="input-group-prepend"><span class="input-group-text" style="opacity: 0.50;"><i class="fa fa-search bounce animated"></i></span></div><input name="searchItem" list="searchlist" class="form-control" type="text" placeholder="I am looking for.." style="height: 52.8px;opacity: 0.50;">
                                 <datalist id="searchlist">
                                     <<?php foreach ($canteens as $canteen): ?>
                                         <option value="<?php echo $canteen['name']; ?>">
@@ -101,7 +107,7 @@ mysqli_free_result($result);
                 <div class="col-md-6 col-lg-4 item">
                     <div data-bs-hover-animate="pulse" class="box"><img class="rounded-circle" src="assets/img/idli-vada.jpg">
                         <h3 class="name">Idli-vada</h3>
-                        <a href="canteen.php?some_param=1#canteens" class="btn btn-outline-secondary mt-auto">Snack It</a>
+                        <a href="canteen.php?some_param=1#Ten_Bhagyanagar_Idli-Vada" class="btn btn-outline-secondary mt-auto">Snack It</a>
                         <p class="title">&nbsp;Ten Bhagyanagar</p>
                         <div class="social"><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star fa-star-o"></i></a></div>
                     </div>
@@ -109,7 +115,7 @@ mysqli_free_result($result);
                 <div class="col-md-6 col-lg-4 item">
                     <div data-bs-hover-animate="pulse" class="box"><img class="rounded-circle" src="assets/img/coffee.jpg">
                         <h3 class="name">Coffee</h3>
-                        <a href="canteen.php?some_param=1#" class="btn btn-outline-secondary mt-auto">Snack It</a>
+                        <a href="canteen.php?some_param=1#Ten_Bhagyanagar_Coffee" class="btn btn-outline-secondary mt-auto">Snack It</a>
                         <p class="title">Coffee All Day</p>
                         <div class="social"><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star fa-star-half-o"></i></a><a href="#"><i class="fa fa-star fa-star-o"></i></a></div>
                     </div>

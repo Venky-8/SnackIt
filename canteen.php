@@ -12,7 +12,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>About us - Brand</title>
+    <title>Canteens - SnackIt</title>
     <script
 			  src="https://code.jquery.com/jquery-3.4.1.min.js"
 			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -118,16 +118,16 @@ session_start();
                                                   <?php
                                                   $item_code = $item['code'];
                                                    ?>
-                                                  <ul class="list-group list-group-horizontal">
+                                                  <ul id="<?php echo $item_code; ?>" class="list-group list-group-horizontal">
                                                       <?php if($item['half']): ?>
                                                           <li role="tab" class="list-group-item col-4"> <?php echo $item['item']; ?> </li>
                                                           <li role="tab" class="list-group-item col-3"> <?php echo $item['half']; ?> </li>
                                                           <li role="tab" class="list-group-item col-3"> <?php echo $item['full']; ?> </li>
-                                                          <li role="tab" class="list-group-item col-2"> <a href="cart/index.php?target=<?php echo $item_code; ?>"> <i class="fa fa-cart-plus" aria-hidden="true"></i> </a> </button </li>
+                                                          <li role="tab" class="list-group-item col-2"> <a href="cart/index.php?some_param=1#<?php echo $item_code; ?>"> <i class="fa fa-cart-plus" aria-hidden="true"></i> </a> </button </li>
                                                       <?php else: ?>
                                                           <li role="tab" class="list-group-item col-6"> <?php echo $item['item']; ?> </li>
                                                           <li role="tab" class="list-group-item col-4"> <?php echo $item['full']; ?> </li>
-                                                          <li role="tab" class="list-group-item col-2"> <a href="cart/index.php?target=<?php echo $item_code; ?>"> <i class="fa fa-cart-plus" aria-hidden="true"></i> </a> </button </li>
+                                                          <li role="tab" class="list-group-item col-2"> <a href="cart/index.php?some_param=1#<?php echo $item_code; ?>"> <i class="fa fa-cart-plus" aria-hidden="true"></i> </a> </button </li>
                                                       <?php endif ?>
                                                   </ul>
                                               <?php }

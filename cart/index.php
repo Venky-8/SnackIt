@@ -99,7 +99,7 @@ if(isset($_SESSION["cart_item"])){
 					<td  style="text-align:right;"><?php echo "₹ ". $item["half"] . "/" . $item["full"]; ?></td>
 				<?php else: ?>
 					<td  style="text-align:right;"><?php echo "₹ ".$item["full"]; ?></td>
-				<? endif ?>
+				<?php endif ?>
 				<td  style="text-align:right;"><?php echo "₹". number_format($item_price,2); ?></td>
 				<td style="text-align:center;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
 				</tr>
@@ -134,12 +134,12 @@ if(isset($_SESSION["cart_item"])){
 
 <?php if(isset($total_price)) { ?>
 	<?php if($total_price > 50) { ?>
-		<a id="checkout" class="btn btn-outline-success float-right my-auto text-center" href="order.php">Checkout</a>
+		<a id="checkout" class="btn btn-outline-success float-right my-auto text-center" href="../Checkout Form/check.php">Checkout</a>
 	<?php } else { ?>
-		<a id="checkout" class="btn btn-outline-success float-right my-auto text-center disabled" href="order.php">Checkout</a>
+		<a id="checkout" class="btn btn-outline-success float-right my-auto text-center disabled" href="../Checkout Form/check.php">Checkout</a>
 	<?php } ?>
 <?php } else { ?>
-	<a id="checkout" class="btn btn-outline-success float-right my-auto text-center disabled" href="order.php">Checkout</a>
+	<a id="checkout" class="btn btn-outline-success float-right my-auto text-center disabled" href="../Checkout Form/check.php">Checkout</a>
 <?php } ?>
 
 </div>

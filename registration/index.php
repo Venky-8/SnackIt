@@ -40,6 +40,7 @@
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
         <p> <a class="btn btn-outline-success" href="../index.php">home</a> </p>
+        <p> <a class="btn btn-outline-success" href="../cart/index.php">My Cart</a> </p>
     	<p> <a class="btn btn-outline-danger" href="index.php?logout='1'">logout</a> </p>
     <?php endif ?>
 </div>

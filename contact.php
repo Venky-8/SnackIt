@@ -3,6 +3,10 @@
  ?>
 
 <?php
+ session_start();
+  ?>
+
+<?php
     if(isset($_POST['submitBtn'])) {
         $name = $_POST['name'];
         $email = $_POST['email'];
@@ -49,6 +53,13 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="canteen.php">Canteens</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="contact.php">Contact us</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="about.php">ABOUT US</a></li>
+                    <?php
+                    if(!isset($_SESSION['username'])) { ?>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="registration/login.php">Sign In</a></li>
+                    <?php } else { ?>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="registration/index.php"><?php echo 'My Dashbord'; ?> </a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="registration/index.php"> Logout </a></li>
+                    <?php } ?>
                 </ul>
         </div>
         </div>

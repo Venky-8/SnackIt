@@ -138,7 +138,15 @@ if(isset($_SESSION["cart_item"])){
 }
 ?>
 
-<a id="checkout" class="btn btn-outline-success float-right my-auto text-center disabled" href="order.php">Checkout</a>
+<?php if(isset($total_price)) { ?>
+	<?php if($total_price > 50) { ?>
+		<a id="checkout" class="btn btn-outline-success float-right my-auto text-center" href="order.php">Checkout</a>
+	<?php } else { ?>
+		<a id="checkout" class="btn btn-outline-success float-right my-auto text-center disabled" href="order.php">Checkout</a>
+	<?php } ?>
+<?php } else { ?>
+	<a id="checkout" class="btn btn-outline-success float-right my-auto text-center disabled" href="order.php">Checkout</a>
+<?php } ?>
 
 </div>
 

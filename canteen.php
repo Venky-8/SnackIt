@@ -123,11 +123,11 @@ session_start();
                                                           <li role="tab" class="list-group-item col-4"> <?php echo $item['item']; ?> </li>
                                                           <li role="tab" class="list-group-item col-3"> <?php echo $item['half']; ?> </li>
                                                           <li role="tab" class="list-group-item col-3"> <?php echo $item['full']; ?> </li>
-                                                          <li role="tab" class="list-group-item col-2"> <a href="cart/index.php?some_param=1#<?php echo $item_code; ?>"> <i class="fa fa-cart-plus" aria-hidden="true"></i> </a> </button </li>
+                                                          <li role="tab" class="list-group-item col-2"> <a href="cart/index.php?some_param=1#<?php echo $item_code; ?>"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> </a> </button </li>
                                                       <?php else: ?>
                                                           <li role="tab" class="list-group-item col-6"> <?php echo $item['item']; ?> </li>
                                                           <li role="tab" class="list-group-item col-4"> <?php echo $item['full']; ?> </li>
-                                                          <li role="tab" class="list-group-item col-2"> <a href="cart/index.php?some_param=1#<?php echo $item_code; ?>"> <i class="fa fa-cart-plus" aria-hidden="true"></i> </a> </button </li>
+                                                          <li role="tab" class="list-group-item col-2"> <a href="cart/index.php?some_param=1#<?php echo $item_code; ?>"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> </a> </button </li>
                                                       <?php endif ?>
                                                   </ul>
                                               <?php }

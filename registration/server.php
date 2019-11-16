@@ -22,8 +22,16 @@ if (isset($_POST['reg_user'])) {
   if (empty($username)) { array_push($errors, "Username is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
-  if ($password_1 != $password_2) {
-	array_push($errors, "The two passwords do not match");
+  if (strlen($_POST["password_1"]) <= '8') { array_push($errors,"Your Password Must Contain At Least 8 Characters!") ;}
+ 
+  elseif(!preg_match("#[0-9]+#",$password_1)) {array_push($errors,"Your Password Must Contain At Least 1 Number!") ;}
+  elseif(!preg_match("#[A-Z]+#",$password_1)) {array_push($errors,"Your Password Must Contain At Least 1 Capital Letter!");}
+  elseif(!preg_match("#[a-z]+#",$password_1)) {array_push($errors,"Your Password Must Contain At Least 1 Lowercase Letter!");}
+    
+
+if ($password_1 != $password_2)
+   {
+  array_push($errors, "The two passwords do not match");
   }
 
   // first check the database to make sure
@@ -41,6 +49,7 @@ if (isset($_POST['reg_user'])) {
       array_push($errors, "email already exists");
     }
   }
+
 
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {

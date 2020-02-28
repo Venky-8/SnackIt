@@ -1,2 +1,3 @@
 # SnackIt
-SnackIt is DBMS and Cl-4 Project for searching food in various canteens
+SnackIt is used for finding and ordering food from canteens.
+It is developed using PHP and PostgreSQL.
